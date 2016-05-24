@@ -18,6 +18,17 @@
         }
     };
 
+    /** function to get detail of city added in mysql referencing php **/
+
+    $scope.get_city = function() {
+        $http.get("db.php?action=get_city").success(function(data)
+        { 
+            console.log(data);
+            $scope.paysList = data;    
+
+        });
+    }
+
     /** function to get detail of product added in mysql referencing php **/
 
     $scope.get_product = function() {
@@ -128,7 +139,7 @@
                    
                 });*/
 
-    $http.post('db.php?action=search_vol&'+'ville_origine='+$scope.ville_origine, 
+    $http.post('db.php?action=search_vol', 
             {
                 'ville_origine'     : $scope.ville_origine, 
                 'ville_arriver'     : $scope.ville_arriver

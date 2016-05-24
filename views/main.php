@@ -2,7 +2,13 @@
   <div class="jumbotron text-center">
     <h1>MIKIRY</h1> 
     <p>A la rechercher de vols pour la CORSE?</p> 
-    <form class="form-inline">
+    <form class="form-inline" ng-init="get_city()">
+        <select ng-model="villeSelected" id="basic" class="selectpicker show-tick form-control" data-live-search="true" data-size="5" title="Sélectonner une ville de départ ...">
+          <optgroup ng-repeat="pays in paysList" label='{{pays.pays_name_fr}}'><!--data-subtext="optgroup subtext"-->
+            <option ng-repeat="ville in pays.villes">{{ville.city_name_fr}}</option>
+          </optgroup>
+        </select>
+        {{villeSelected}}
       <input type="text" class="form-control" size="25" placeholder="Sélectionner la ville d'origine"  name="ville_origine" ng-model="ville_origine" required>
       <input type="text" class="form-control" size="25" placeholder="Sélectionner la ville d'arriver"  name="ville_arriver" ng-model="ville_arriver">
       <button type="button" class="btn btn-primary" name="update_product" ng-click="search_vol()">Trouver des vols</button>

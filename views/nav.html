@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<!--<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -13,7 +13,48 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#annonces">Nos annonces</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span id="fr"></span><span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">En</a></li>
+            <li><a href="#">De</a></li>
+          </ul>
+        </li>
       </ul>
+    </div>
+  </div>
+</nav>-->
+
+<nav>
+  <div class="navbar navbar-default" role="navigation"><!-- navbar-fixed-top-->
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/saisi"><span class="glyphicon glyphicon-time"></span> Saisie des temps</a></li>
+          <li><a href="/statistiques"><span class="glyphicon glyphicon-signal"></span> Statistiques</a></li>
+          <li><a href="/temps"><span class="glyphicon glyphicon-list-alt"></span> Afficher les temps</a></li>
+          <li><a href="/facturation"><span class="glyphicon glyphicon-euro"></span> Facturation mensuelle</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-wrench"></span> Param&eacute;trage <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Gestion des UCs</a></li>
+              <li class="divider"></li>
+              <li class="dropdown-header">Njarasoa</li>
+              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mon compte</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-off"></span> D&eacute;connexion</a></li>
+            </li>
+        </ul>
+      </div><!--/.nav-collapse -->
     </div>
   </div>
 </nav>

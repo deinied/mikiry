@@ -5,6 +5,10 @@ include('db/config.php');
 /**  Switch Case to Get Action from controller  **/
 
 switch($_GET['action'])  {
+    case 'get_city' :
+            get_city();
+            break;
+
     case 'add_product' :
             add_product();
             break;
@@ -56,6 +60,35 @@ function add_product() {
     }
 }
 
+/**  Function to Get city list  **/
+/*
+select  pays.paysId, pays.pays_name_fr, city.city_name_fr
+from pays
+inner join city on pays.paysId = city.paysId
+*/
+function get_city() {    
+    $qryPays = mysql_query('SELECT * from pays');
+    $pays = array();
+    while($rowsPays = mysql_fetch_array($qryPays))
+    {
+        $qryVilles = mysql_query('SELECT * from city where paysId='.$rowsPays['paysId']);
+        $villes = array();
+        while($rowsVille = mysql_fetch_array($qryVilles))
+        {
+            $villes[] = array(
+                    "cityId"            => $rowsVille['cityId'],
+                    "city_name_fr"      => $rowsVille['city_name_fr']
+                    );
+        }
+
+        $pays[] = array(
+                    "pays_name_fr"      => $rowsPays['pays_name_fr'],
+                    "villes"            => $villes
+                    );
+    }
+    print_r(json_encode($pays));
+    return json_encode($pays);  
+}
 
 /**  Function to Get Product  **/
 
@@ -140,7 +173,12 @@ function update_product() {
 /** Function to search a fly **/
 
 function search_vol() {
-    $str = $_GET['ville_origine'];
+    //$str = $_GET['ville_origine'];
+    $donnee = json_decode(file_get_contents("php://input"));
+    //print_r($donnee);
+    $str = $donnee->ville_origine;
+    //print_r($str);
+
     $qry = mysql_query('SELECT * from product WHERE prod_desc LIKE \'%'.$str.'%\'');
     $data = array();
     while($rows = mysql_fetch_array($qry))

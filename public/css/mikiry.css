@@ -1,8 +1,17 @@
-body {
+body44 {
       font: 400 15px Lato, sans-serif;
       line-height: 1.8;
       color: #818181;
   }
+
+body {
+    position: relative;
+    background-color: #12151D;
+    color: #999;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Source Sans Pro';
+    font-weight: 400;
+}
 
 h2 {
     font-size: 24px;
@@ -175,4 +184,10 @@ footer .glyphicon {
   .logo {
       font-size: 150px;
   }
+}
+
+#fr{
+    background-image: url("../images/en.png");
+    height: 12px;
+    width: 18px;
 }
